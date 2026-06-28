@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", sans-serif;
+  
+  --color-luxury-gold: #C5A880;
+  --color-luxury-dark: #121212;
+  --color-luxury-cream: #FBF9F6;
+  --color-luxury-muted: #666666;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+/* Custom editorial image filters */
+.luxury-img-filter {
+  filter: grayscale(20%) contrast(102%);
+  transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.luxury-img-filter:hover {
+  filter: grayscale(0%) contrast(100%);
+}
