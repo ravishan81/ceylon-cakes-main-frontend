@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser';
 
 import { motion, AnimatePresence, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 import { Mail, Phone, MapPin, ChevronLeft, ChevronRight, Quote, Flower2 } from 'lucide-react';
+import { useHomePageStore } from '../lib/store';
 
 /* ------------------------------------------------------------------
    DESIGN TOKENS — Ceylon Cakes
@@ -171,10 +172,20 @@ function MarqueeRow({ images, direction = "left", speed = 38, draggable = false,
   );
 }
 
+// Fallback slides used until the API responds
+const FALLBACK_SLIDES = [
+  "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212549/WhatsApp_Image_2026-06-23_at_16.12.10_ewjucr.jpg",
+  "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212764/WhatsApp_Image_2026-06-23_at_16.33.44_sbhmbq.jpg",
+  "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212776/WhatsApp_Image_2026-06-23_at_16.34.59_uxojr2.jpg",
+];
+
 export default function Home({ setCurrentPage }) {
   const [activeReview, setActiveReview] = useState(0);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
   const [isSending, setIsSending] = useState(false);
+
+  const { heroSlides: storeSlides, fetchHeroSlides } = useHomePageStore();
+  const heroSlides = storeSlides.length > 0 ? storeSlides : FALLBACK_SLIDES;
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -204,13 +215,10 @@ export default function Home({ setCurrentPage }) {
   const resumeTimer = useRef(null);
   const autoX = useMotionValue(0);
 
-  const heroSlides = [
-    "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212549/WhatsApp_Image_2026-06-23_at_16.12.10_ewjucr.jpg",
-    "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212764/WhatsApp_Image_2026-06-23_at_16.33.44_sbhmbq.jpg",
-    "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212776/WhatsApp_Image_2026-06-23_at_16.34.59_uxojr2.jpg",
-    "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212769/WhatsApp_Image_2026-06-23_at_16.35.00_1_f9m05g.jpg",
-    "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212777/WhatsApp_Image_2026-06-23_at_16.34.58_afol1h.jpg"
-  ];
+  // Fetch hero slides from backend on mount
+  useEffect(() => {
+    fetchHeroSlides();
+  }, [fetchHeroSlides]);
 
   const cakeCollection = [
     "https://images.unsplash.com/photo-1527419220451-f3b990929817?auto=format&fit=crop&q=80&w=400",
