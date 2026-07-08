@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 import { motion, AnimatePresence, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 import { Mail, Phone, MapPin, ChevronLeft, ChevronRight, Quote, Flower2 } from 'lucide-react';
+import { useHomePageStore } from '../lib/store';
 
 /* ------------------------------------------------------------------
    DESIGN TOKENS — Ceylon Cakes
@@ -170,9 +172,41 @@ function MarqueeRow({ images, direction = "left", speed = 38, draggable = false,
   );
 }
 
+// Fallback slides used until the API responds
+const FALLBACK_SLIDES = [
+  "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212549/WhatsApp_Image_2026-06-23_at_16.12.10_ewjucr.jpg",
+  "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212764/WhatsApp_Image_2026-06-23_at_16.33.44_sbhmbq.jpg",
+  "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212776/WhatsApp_Image_2026-06-23_at_16.34.59_uxojr2.jpg",
+];
+
 export default function Home({ setCurrentPage }) {
   const [activeReview, setActiveReview] = useState(0);
   const [heroImageIndex, setHeroImageIndex] = useState(0);
+  const [isSending, setIsSending] = useState(false);
+
+  const { heroSlides: storeSlides, fetchHeroSlides } = useHomePageStore();
+  const heroSlides = storeSlides.length > 0 ? storeSlides : FALLBACK_SLIDES;
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      form.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    ).then((result) => {
+        alert('Registry Request sent successfully!');
+        setIsSending(false);
+        e.target.reset();
+    }, (error) => {
+        console.error(error.text);
+        alert('Failed to send request, please try again.');
+        setIsSending(false);
+    });
+  };
 
   const carouselRef = useRef(null);
   const trackRef = useRef(null);
@@ -181,13 +215,10 @@ export default function Home({ setCurrentPage }) {
   const resumeTimer = useRef(null);
   const autoX = useMotionValue(0);
 
-  const heroSlides = [
-    "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212549/WhatsApp_Image_2026-06-23_at_16.12.10_ewjucr.jpg",
-    "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212764/WhatsApp_Image_2026-06-23_at_16.33.44_sbhmbq.jpg",
-    "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212776/WhatsApp_Image_2026-06-23_at_16.34.59_uxojr2.jpg",
-    "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212769/WhatsApp_Image_2026-06-23_at_16.35.00_1_f9m05g.jpg",
-    "https://res.cloudinary.com/dtscqhcop/image/upload/v1782212777/WhatsApp_Image_2026-06-23_at_16.34.58_afol1h.jpg"
-  ];
+  // Fetch hero slides from backend on mount
+  useEffect(() => {
+    fetchHeroSlides();
+  }, [fetchHeroSlides]);
 
   const cakeCollection = [
     "https://images.unsplash.com/photo-1527419220451-f3b990929817?auto=format&fit=crop&q=80&w=400",
@@ -250,18 +281,27 @@ export default function Home({ setCurrentPage }) {
     "https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&q=80&w=500"
   ];
 
-  const testimonials = [
+  const [testimonials, setTestimonials] = useState([
     { text: "Ceylon Cakes transformed our vision into an architectural wonder. The delicate sugar details were pure haute couture.", author: "Lady Seraphina", event: "Wedding Gala at Galle Face" },
-    { text: "Beyond beautiful — the flavour profile was rich, balanced, and left our distinguished guests in complete awe.", author: "Aria & Julian", event: "Vow Renewal" },
-    { text: "Flawless sophistication. The gold leaf application complemented our aesthetic style seamlessly.", author: "Maximilian Silva", event: "Corporate Soiree" },
-    { text: "The floral bouquets were so detailed they looked organically grown. Truly fine art craftsmanship.", author: "Elena Rostova", event: "High-Tea Launch" },
-    { text: "Uncompromising luxury from consultation to delivery. The centrepiece of our memorable evening.", author: "Tariq Al-Mansoor", event: "Anniversary Celebration" },
-    { text: "The presentation was breathtaking. It was a true masterpiece that tasted as heavenly as it looked.", author: "Dr. Nishantha Perera", event: "Grand Ballroom Reception" },
-    { text: "Incredible attention to micro-details. Hands down the most elegant cake maker in Sri Lanka.", author: "Natasha & Michelle", event: "Couture Garden Wedding" },
-    { text: "Their sugar flowers are an absolute work of fine art. Our guests could not believe they were edible.", author: "Imran Khan", event: "Luxury Corporate Jubilee" },
-    { text: "The taste signature was completely custom and incredibly refined — not overly sweet, just perfect.", author: "Sophia Mendis", event: "Bespoke Birthday Banquet" },
-    { text: "Exquisite professionalism. They synchronised with our layout designer down to the millimetre.", author: "Jonathan Wickramasinghe", event: "Idyllic Destination Gala" }
-  ];
+    { text: "Beyond beautiful — the flavour profile was rich, balanced, and left our distinguished guests in complete awe.", author: "Aria & Julian", event: "Vow Renewal" }
+  ]);
+
+  useEffect(() => {
+    fetch('https://cake-backend.cakeceylon.workers.dev/ratings?page=1&limit=10')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.data && data.data.length > 0) {
+          const fetchedTestimonials = data.data.map(item => ({
+            text: item.comment,
+            author: item.client_name,
+            event: `${item.ratings} Star Rating`
+          }));
+          setTestimonials(fetchedTestimonials);
+          setActiveReview(0);
+        }
+      })
+      .catch(error => console.error('Error fetching testimonials:', error));
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -769,31 +809,32 @@ export default function Home({ setCurrentPage }) {
           </motion.div>
 
           <motion.div {...dropIn(0.1)} className="lg:col-span-7 bg-white p-8 sm:p-12 border border-[#11302E]/8 shadow-xl shadow-[#11302E]/5 rounded-3xl">
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-10">
+            <form ref={form} onSubmit={sendEmail} className="space-y-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                 <div className="relative">
-                  <input type="text" id="name" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" placeholder=" " />
+                  <input type="text" id="name" name="name" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" placeholder=" " />
                   <label htmlFor="name" className="absolute left-0 top-2 text-[10px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Full Name</label>
                 </div>
                 <div className="relative">
-                  <input type="date" id="date" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" />
+                  <input type="date" id="date" name="date" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" />
                 </div>
               </div>
               <div className="relative">
-                <input type="email" id="email" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" placeholder=" " />
+                <input type="email" id="email" name="email" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" placeholder=" " />
                 <label htmlFor="email" className="absolute left-0 top-2 text-[10px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Email Address</label>
               </div>
               <div className="relative">
-                <textarea id="message" rows="4" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors resize-none peer bg-transparent z-10 relative" placeholder=" " />
+                <textarea id="message" name="message" rows="4" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors resize-none peer bg-transparent z-10 relative" placeholder=" " />
                 <label htmlFor="message" className="absolute left-0 top-2 text-[10px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Celebration Specifics</label>
               </div>
 
               <motion.button
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-[#11302E] text-white text-[10px] font-sans uppercase tracking-[0.2em] py-4 hover:bg-[#8C4450] transition-colors duration-300 cursor-pointer shadow-lg font-medium rounded-xl"
+                disabled={isSending}
+                className={`w-full bg-[#11302E] text-white text-[10px] font-sans uppercase tracking-[0.2em] py-4 hover:bg-[#8C4450] transition-colors duration-300 cursor-pointer shadow-lg font-medium rounded-xl ${isSending ? 'opacity-70 cursor-wait' : ''}`}
               >
-                Submit Registry Request
+                {isSending ? 'Sending Request...' : 'Submit Registry Request'}
               </motion.button>
             </form>
           </motion.div>
