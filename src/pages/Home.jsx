@@ -395,7 +395,7 @@ export default function Home({ setCurrentPage }) {
               </h1>
 
               <p className="font-sans text-sm sm:text-base text-[#6B6661] leading-relaxed font-light mb-9 max-w-xl mx-auto lg:mx-0">
-                Each tier hand-built, hand-painted and tasted before it ever reaches you —
+                Each tier hand built, hand painted and tasted before it ever reaches you 
                 bespoke confectionery for the milestones of Sri Lanka's most discerning hosts.
               </p>
 
