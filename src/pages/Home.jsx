@@ -269,7 +269,7 @@ export default function Home({ setCurrentPage }) {
     "https://res.cloudinary.com/dtscqhcop/image/upload/v1782361315/WhatsApp_Image_2026-06-25_at_09.48.17_g1zjkz.jpg",
     "https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&q=80&w=500",
     "https://res.cloudinary.com/dtscqhcop/image/upload/v1782361267/WhatsApp_Image_2026-06-25_at_09.48.21_y489up.jpg",
-    "https://images.unsplash.com/photo-1463320726281-696a485928c7?auto=format&fit=crop&q=80&w=500",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783782123/images_1_ddktha.jpg",
     "https://res.cloudinary.com/dtscqhcop/image/upload/v1782361266/WhatsApp_Image_2026-06-25_at_09.48.16_bebkiv.jpg",
     "https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&q=80&w=500"
   ];
