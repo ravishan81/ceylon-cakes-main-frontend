@@ -252,16 +252,16 @@ export default function Home({ setCurrentPage }) {
     "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780435/WhatsApp_Image_2026-07-11_at_08.10.49_1_nicy0s.jpg"
   ];
   const rowBack = [
-    "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1599785209707-a456fc1337bb?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1612203985729-442bd6c2cae0?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1557925923-33b27f891f88?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1534432182912-63863115e106?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1508737027454-e6454ef45afd?auto=format&fit=crop&q=80&w=400"
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780975/WhatsApp_Image_2026-07-11_at_08.16.32_1_awxbxp.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780975/WhatsApp_Image_2026-07-11_at_08.16.37_rb6nyp.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780975/WhatsApp_Image_2026-07-11_at_08.16.36_1_kifwah.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780975/WhatsApp_Image_2026-07-11_at_08.16.30_invawp.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780974/WhatsApp_Image_2026-07-11_at_08.16.37_1_ublmvg.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780974/WhatsApp_Image_2026-07-11_at_08.16.36_bocnve.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780974/WhatsApp_Image_2026-07-11_at_08.16.32_spioks.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780974/WhatsApp_Image_2026-07-11_at_08.16.30_1_qbzqfm.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783781090/WhatsApp_Image_2026-07-11_at_08.16.42_rhcdfw.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783781095/WhatsApp_Image_2026-07-11_at_08.16.41_2_emkcba.jpg"
   ];
 
   // Floral bouquet showcase — sugar-flower and bouquet detail shots
