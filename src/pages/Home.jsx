@@ -377,7 +377,7 @@ export default function Home({ setCurrentPage }) {
               <div className="inline-flex items-center gap-3 mb-6 justify-center lg:justify-start">
                 <TierMark className="w-9 h-4" tone="claret" />
                 <span className="text-[10px] uppercase tracking-[0.35em] text-[#8C4450] font-sans font-semibold">
-                  Ceylon's House of Pastry Couture
+                  Ceylon's House of Cakes Couture
                 </span>
               </div>
 
@@ -494,12 +494,12 @@ export default function Home({ setCurrentPage }) {
               <span className="italic text-[#8C4450] font-normal">never off a shelf.</span>
             </h2>
             <p className="font-sans text-sm text-[#6B6661] font-light leading-8">
-              Ceylon Cakes began with a simple refusal: no two celebrations are the same, so no
-              two cakes should be either. Every commission starts as a sketch and a conversation —
-              your colours, your story, your venue — before it ever touches sugar.
+              Ceylon Cakes began with a simple refusal, no two celebrations are the same, so no
+              two cakes should be either. Every commission starts as a sketch and a conversation 
+              your colours, your story, your venue  before it ever touches sugar.
             </p>
             <p className="font-sans text-sm text-[#6B6661] font-light leading-8">
-              From structural engineering beneath the icing to the final hand-piped detail, the
+              From structural engineering beneath the icing to the final hand piped detail, the
               work is shaped entirely by hand in our Colombo atelier, built to travel and built
               to be remembered.
             </p>
@@ -541,11 +541,11 @@ export default function Home({ setCurrentPage }) {
               <TierMark className="w-8 h-3.5" tone="claret" />
               <span className="text-xs uppercase tracking-[0.3em] text-[#8C4450] font-sans font-semibold">The Atelier Archive</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-light text-[#11302E] tracking-tight">Twenty signature designs, three rows.</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-light text-[#11302E] tracking-tight"> signature designs</h2>
           </div>
           <div className="md:col-span-4 md:text-right">
             <p className="font-sans text-xs text-[#6B6661] font-light leading-relaxed">
-              The top row is yours to drag — the two below glide on their own, drifting in opposite directions.
+              
             </p>
           </div>
         </motion.div>
@@ -645,7 +645,7 @@ export default function Home({ setCurrentPage }) {
           </h2>
           <p className="font-sans text-sm text-[#6B6661] font-light leading-relaxed mt-5 max-w-xl mx-auto">
             Every bloom on a Ceylon Cakes commission is piped, shaped and tinted entirely by
-            hand — peonies, ranunculus and trailing orchids that hold their form long after
+            hand  peonies, ranunculus and trailing orchids that hold their form long after
             the last slice is served.
           </p>
         </motion.div>
