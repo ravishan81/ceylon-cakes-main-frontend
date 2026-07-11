@@ -39,14 +39,14 @@ export default function Gallery({ category }) {
     if (category === 'all') return allItems;
     
     return allItems.filter(item => {
-      const cat = (item.category || '').toLowerCase();
-      const subCat = (item.sub_category || '').toLowerCase();
+      const cat = item.category || '';
+      const subCat = item.sub_category || '';
       
-      if (category === 'wedding') return cat.includes('wedding');
-      if (category === 'birthday-kids') return cat.includes('birthday') && subCat.includes('kids');
-      if (category === 'birthday-grownups') return cat.includes('birthday') && (subCat.includes('grownups') || subCat.includes('adults'));
-      if (category === 'cupcakes') return cat.includes('cupcake');
-      if (category === 'bouquets') return cat.includes('bouquet');
+      if (category === 'wedding') return cat === 'Wedding & Engagement cakes';
+      if (category === 'birthday-kids') return cat === 'Birthdays' && subCat === 'kids';
+      if (category === 'birthday-grownups') return cat === 'Birthdays' && subCat === 'Grown ups / elders';
+      if (category === 'cupcakes') return cat === 'Wedding Cup cakes';
+      if (category === 'bouquets') return cat === 'Flower Bouquets';
       
       return false;
     });
