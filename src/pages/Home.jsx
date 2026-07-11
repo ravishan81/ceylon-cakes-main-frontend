@@ -240,16 +240,16 @@ export default function Home({ setCurrentPage }) {
   // directions, fully automatic (no drag needed, the row above already
   // covers manual browsing).
   const rowFront = [
-    "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1622895326916-660e54e88774?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1607478900766-efe13248b125?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&q=80&w=400"
+    
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780626/WhatsApp_Image_2026-07-11_at_20.06.10_t0dnet.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780625/WhatsApp_Image_2026-07-11_at_20.06.10_1_qfbiyu.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780626/WhatsApp_Image_2026-07-11_at_20.06.11_lhsq7w.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780436/WhatsApp_Image_2026-07-11_at_08.10.55_efeasy.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780436/WhatsApp_Image_2026-07-11_at_08.10.53_xfaaoz.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780436/WhatsApp_Image_2026-07-11_at_08.10.51_rwcoxu.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780436/WhatsApp_Image_2026-07-11_at_08.10.53_1_kcl7ds.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780435/WhatsApp_Image_2026-07-11_at_08.10.48_rnxjsk.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780435/WhatsApp_Image_2026-07-11_at_08.10.49_1_nicy0s.jpg"
   ];
   const rowBack = [
     "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=400",
