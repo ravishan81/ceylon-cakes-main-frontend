@@ -221,26 +221,19 @@ export default function Home({ setCurrentPage }) {
   }, [fetchHeroSlides]);
 
   const cakeCollection = [
-    "https://images.unsplash.com/photo-1527419220451-f3b990929817?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1562240020-ce31ccb0fa7d?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1519340333755-56e87a38209e?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1464349172961-4c4d3365ad7a?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1534432123161-177b54636d7d?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1557925923-33b27f891f88?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1516685018646-549198525c1b?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1508737027454-e6454ef45afd?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1535141192574-5d4897c13636?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1519340333755-56e87a38209e?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1542826438-bd32f43d626f?auto=format&fit=crop&q=80&w=400",
-    "https://images.unsplash.com/photo-1527419220451-f3b990929817?auto=format&fit=crop&q=80&w=400"
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780023/WhatsApp_Image_2026-07-11_at_08.06.34_1_mssdgj.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780024/WhatsApp_Image_2026-07-11_at_08.06.35_1_okyam4.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780022/WhatsApp_Image_2026-07-11_at_08.06.32_1_iuokt9.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780024/WhatsApp_Image_2026-07-11_at_08.06.35_2_rmuxxp.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780024/WhatsApp_Image_2026-07-11_at_08.06.35_bfsxfy.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780024/WhatsApp_Image_2026-07-11_at_08.06.34_jtwjdu.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780026/WhatsApp_Image_2026-07-11_at_08.06.38_1_ppfrno.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780026/WhatsApp_Image_2026-07-11_at_08.06.37_fylmfp.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780027/WhatsApp_Image_2026-07-11_at_08.06.32_cutiwz.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780027/WhatsApp_Image_2026-07-11_at_08.06.33_kuur8x.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780028/WhatsApp_Image_2026-07-11_at_08.06.38_2_herhwa.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780027/WhatsApp_Image_2026-07-11_at_08.06.31_fbsgbw.jpg",
+    "https://res.cloudinary.com/dtscqhcop/image/upload/v1783780030/WhatsApp_Image_2026-07-11_at_08.06.33_1_jwaxwu.jpg"
   ];
 
   // Two ambient rows under the main archive — 10 images each, opposite
