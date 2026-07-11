@@ -813,19 +813,42 @@ export default function Home({ setCurrentPage }) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                 <div className="relative">
                   <input type="text" id="name" name="name" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" placeholder=" " />
-                  <label htmlFor="name" className="absolute left-0 top-2 text-[10px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Full Name</label>
+                  <label htmlFor="name" className="absolute left-0 -top-4 text-[9px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Full Name</label>
                 </div>
                 <div className="relative">
                   <input type="date" id="date" name="date" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" />
                 </div>
               </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                <div className="relative">
+                  <input type="tel" id="contact_number" name="contact_number" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" placeholder=" " />
+                  <label htmlFor="contact_number" className="absolute left-0 -top-4 text-[9px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Contact Number</label>
+                </div>
+                <div className="relative">
+                  <input type="text" id="location" name="location" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" placeholder=" " />
+                  <label htmlFor="location" className="absolute left-0 -top-4 text-[9px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Location</label>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                <div className="relative">
+                  <input type="text" id="cake_flavour" name="cake_flavour" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" placeholder=" " />
+                  <label htmlFor="cake_flavour" className="absolute left-0 -top-4 text-[9px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Cake Flavour</label>
+                </div>
+                <div className="relative">
+                  <input type="text" id="kg" name="kg" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" placeholder=" " />
+                  <label htmlFor="kg" className="absolute left-0 -top-4 text-[9px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Weight (Kg)</label>
+                </div>
+              </div>
+
               <div className="relative">
                 <input type="email" id="email" name="email" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors peer bg-transparent z-10 relative" placeholder=" " />
-                <label htmlFor="email" className="absolute left-0 top-2 text-[10px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Email Address</label>
+                <label htmlFor="email" className="absolute left-0 -top-4 text-[9px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Email Address</label>
               </div>
               <div className="relative">
                 <textarea id="message" name="message" rows="4" required className="w-full border-b border-[#11302E]/15 py-2 focus:outline-none focus:border-[#C99A44] text-xs font-light tracking-wide transition-colors resize-none peer bg-transparent z-10 relative" placeholder=" " />
-                <label htmlFor="message" className="absolute left-0 top-2 text-[10px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Celebration Specifics</label>
+                <label htmlFor="message" className="absolute left-0 -top-4 text-[9px] uppercase tracking-widest text-[#6B6661] transition-all duration-300 peer-placeholder-shown:text-xs peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-[#8C4450]">Celebration Specifics</label>
               </div>
 
               <motion.button
